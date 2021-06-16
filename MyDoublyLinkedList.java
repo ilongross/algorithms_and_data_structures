@@ -64,20 +64,23 @@ public class MyDoublyLinkedList<T extends Comparable> {
         tail = tail.previous;
         return tmp.value;
     }
-    public boolean deleteElem(T value) {
+    public T deleteElem(T value) {
         Node<T> waste = new Node<T>(value);
         Node<T> current = head;
-        while(current != null) {
+        while(current.value != value) {
             current = current.next;
-            if(current == null)
-                return false;
-            if(current.value == waste.value) {
-                current.next = waste.next;
-                waste.next.previous = waste.previous;
-                return true;
-            }
+            if (current == null)
+                return null;
         }
-        return false;
+        if(current == head)
+            head = head.next;
+        else
+            current.previous.next = current.next;
+        if(current == tail)
+            tail = current.previous;
+        else
+            current.next.previous = current.previous;
+        return current.value;
     }
 
     public T getFirst() {
