@@ -26,8 +26,8 @@ public class MyDoublyLinkedList<T extends Comparable> {
         tail = newNode;
     }
     public boolean addAfter(T targetElem, T newElem) {
-        Node<T> current = new Node<T>(targetElem);
-        while(current.next != null) {
+        Node<T> current = head;
+        while(current.value != targetElem) {
             current = current.next;
             if(current == null)
                 return false;
