@@ -65,7 +65,6 @@ public class MyDoublyLinkedList<T extends Comparable> {
         return tmp.value;
     }
     public T deleteElem(T value) {
-        Node<T> waste = new Node<T>(value);
         Node<T> current = head;
         while(current.value != value) {
             current = current.next;
