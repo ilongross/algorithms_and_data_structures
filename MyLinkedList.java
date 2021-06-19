@@ -40,7 +40,7 @@ public class MyLinkedList<T> {
         }
     }
 
-    public int getNum(T t) {
+    public int getOrderNumber(T t) {
         if(head == null)
             return -1;
         Node<T> currentNode = head;
